@@ -12,11 +12,13 @@ We provide a few analysis scripts under `analysis/` to view the packet-level eve
 Refer to the README.md under it for more details.
 
 ## Generating the figures in the paper
-Take the web search workload as example:
+Take the web search workload as an example (for Hadoop workload, just use FbHdp_distribution.txt in step 1):
 
 1. Generate traffic workload at 50% load: `python traffic_gen/traffic_gen.py -c traffic_gen/WebSearch_distribution.txt -n 320 -l 0.5 -b 100G -t 0.2 > simulation/mix/wb50_b100.txt`
 
-2. Run simulations: `cd simulation`
+2. Run simulations: 
+
+* First enter the folder and configure: `cd simulation; CC='gcc-5' CXX='g++-5' ./waf configure` 
 
 * HPCC-PINT: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 1`
 
@@ -26,11 +28,15 @@ Take the web search workload as example:
 
 * HPCC: `python run.py --cc hp --trace wb50_b100 --bw 100 --hpai 50 --utgt 95`
 
-* The simulation will run for about 1 day.
+* Each simulation will run for about 1 day.
 
 3. Get the fct analysis result
 
-* `cd analysis; python fct_analysis.py -p fct_fat_wb50_b100 -s 5 -t 0 -T 2200000000 -b 100`
+* First enter the folder `cd analysis`
+
+* Generate data for fig 7(b): `python fct_analysis.py -p fct_fat_wb50_b100 -s 5 -t 0 -T 2200000000 -b 100`
+
+* Generate data for fig 8(b): `python fct_analysis_diffFreq.py -p fct_fat_wb50_b100 -s 5 -t 0 -T 2200000000 -b 100`
 
 ## Questions
 For technical questions, please create an issue in this repo, so other people can benefit from your questions. 
