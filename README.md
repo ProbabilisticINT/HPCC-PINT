@@ -1,5 +1,5 @@
 # HPCC-PINT simulation
-This is the simulator for HPCC-PINT, an advanced version of HPCC with one byte overhead per packet, introduced in PINT: Probabilistic In-band Network Telemetry (SIGCOMM' 2020).
+This is the simulator for HPCC-PINT, an advanced version of HPCC with one byte overhead per packet, introduced in PINT: Probabilistic In-band Network Telemetry (ACM SIGCOMM 2020).
 
 ## NS-3 simulation
 The ns-3 simulation is under `simulation/`. Refer to the README.md under it for more details.
