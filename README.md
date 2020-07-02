@@ -16,23 +16,21 @@ Take the web search workload as example:
 
 1. Generate traffic workload at 50% load: `python traffic_gen/traffic_gen.py -c traffic_gen/WebSearch_distribution.txt -n 320 -l 0.5 -b 100G -t 0.2 > simulation/mix/wb50_b100.txt`
 
-2. Run simulations: 
+2. Run simulations: `cd simulation`
 
-`cd simulation`
+* HPCC-PINT: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 1`
 
-HPCC-PINT: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 1`
+* HPCC-PINT with p=1/16 of packets carrying feedback: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 0.0625`
 
-HPCC-PINT with p=1/16 of packets carrying feedback: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 0.0625`
+* HPCC-PINT with p=1/256 of packets carrying feedback: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 0.0625`
 
-HPCC-PINT with p=1/256 of packets carrying feedback: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 0.0625`
+* HPCC: `python run.py --cc hp --trace wb50_b100 --bw 100 --hpai 50 --utgt 95`
 
-HPCC: `python run.py --cc hp --trace wb50_b100 --bw 100 --hpai 50 --utgt 95`
-
-The simulation will run for about 1 day.
+* The simulation will run for about 1 day.
 
 3. Get the fct analysis result
 
-`cd analysis; python fct_analysis.py -p fct_fat_wb50_b100 -s 5 -t 0 -T 2200000000 -b 100`
+* `cd analysis; python fct_analysis.py -p fct_fat_wb50_b100 -s 5 -t 0 -T 2200000000 -b 100`
 
 ## Questions
 For technical questions, please create an issue in this repo, so other people can benefit from your questions. 
