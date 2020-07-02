@@ -1,7 +1,5 @@
 # HPCC NS-3 simulator
-This is an NS-3 simulator for [HPCC: High Precision Congestion Control (SIGCOMM' 2019)](https://rmiao.github.io/publications/hpcc-li.pdf). It also includes the implementation of DCQCN, TIMELY, DCTCP, PFC, ECN and Broadcom shared buffer switch.
-
-We have update this simulator to support HPCC-PINT, which reduces the INT header overhead to just 1 byte. This improves the long flow completion time. See [PINT: Probabilistic In-band Network Telemetry (SIGCOMM' 2020)](https://liyuliang001.github.io/publications/pint.pdf).
+This is the simulator for HPCC-PINT, an advanced version of HPCC with one byte overhead per packet, introduced in PINT: Probabilistic In-band Network Telemetry (SIGCOMM' 2020).
 
 It is based on NS-3 version 3.17.
 
@@ -26,7 +24,7 @@ The direct command to run is:
 `./waf --run 'scratch/third mix/config.txt'`
 
 We provide a `run.py` for automatically *generating config* and *running experiment*. Please `python run.py -h` for usage.
-Example usage:
+Example usage for running HPCC:
 `python run.py --cc hp --trace flow --bw 100 --topo topology --hpai 50`
 
 To run HPCC-PINT, try:
@@ -66,10 +64,3 @@ The major ones are listed here. There could be some files not listed here that a
 `network/utils/int-header.cc/h`: the header of INT
 
 `applications/model/rdma-client.cc/h`: the application of generating RDMA traffic
-
-## Notes on other schemes
-The DCQCN implementation is based on [Mellanox's implementation on CX4 and newer version](https://community.mellanox.com/s/article/dcqcn-parameters), which is slightly different from the DCQCN paper version.
-
-The TIMELY implementation is based on our own understanding of the TIMELY paper. We believe we correctly implemented it. We use the parameters in the TIMELY paper. For parameters whose settings are absent in the TIMELY paper, we get from [this paper (footnote 4)](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/09/ecndelay-conext16.pdf).
-
-The DCTCP implementation is a version that we envision DCTCP will be implemented in hardware. It starts at line rate (not slow start) which we believe is necessary in future high-speed network. It also does not delay ACK, because delayed ACk is for saving software overhead. These settings are consistent with other schemes.
