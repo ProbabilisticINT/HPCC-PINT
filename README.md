@@ -1,6 +1,8 @@
 # HPCC-PINT simulation
 This is the simulator for HPCC-PINT, an advanced version of HPCC with one byte overhead per packet, introduced in PINT: Probabilistic In-band Network Telemetry (ACM SIGCOMM 2020).
 
+More extensive evaluation results of HPCC-PINT are [here](https://hpcc-group.github.io/results.html).
+
 ## NS-3 simulation
 The ns-3 simulation is under `simulation/`. Refer to the README.md under it for more details.
 
@@ -37,6 +39,9 @@ Take the web search workload as an example (for Hadoop workload, just use FbHdp_
 * Generate data for fig 7(b): `python fct_analysis.py -p fct_fat_wb50_b100 -s 5 -t 0 -T 2200000000 -b 100`
 
 * Generate data for fig 8(b): `python fct_analysis_diffFreq.py -p fct_fat_wb50_b100 -s 5 -t 0 -T 2200000000 -b 100`
+
+## More results
+We post more extensive evaluation results of HPCC-PINT [here](https://hpcc-group.github.io/results.html).
 
 ## Questions
 For technical questions, please create an issue in this repo, so other people can benefit from your questions. 
