@@ -6,11 +6,7 @@ It is based on NS-3 version 3.17.
 ## Quick Start
 
 ### Build
-`./waf configure`
-
-Please note if gcc version > 5, compilation will fail due to some ns3 code style.  If this what you encounter, please use:
-
-`CC='gcc-5' CXX='g++-5' ./waf configure`
+`bash build.sh`
 
 ### Experiment config
 Please see `mix/config.txt` for example. 
