@@ -14,21 +14,27 @@ We provide a few analysis scripts under `analysis/` to view the packet-level eve
 Refer to the README.md under it for more details.
 
 ## Generating the figures in the paper
-Take the web search workload as an example (for Hadoop workload, just use FbHdp_distribution.txt in step 1):
-
-1. Generate traffic workload at 50% load: `python traffic_gen/traffic_gen.py -c traffic_gen/WebSearch_distribution.txt -n 320 -l 0.5 -b 100G -t 0.2 > simulation/mix/wb50_b100.txt`
+1. Generate traffic workload at 50% load: `bash gen_traffic_files.sh`
 
 2. Run simulations: 
 
-* First enter the folder and configure: `cd simulation; CC='gcc-5' CXX='g++-5' ./waf configure` 
+* First enter the folder and configure: `cd simulation; bash build.sh` 
 
-* HPCC-PINT: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 1`
+* HPCC-PINT under web search: `bash run_hpcc_pint1_wb.sh`
 
-* HPCC-PINT with p=1/16 of packets carrying feedback: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 0.0625`
+* HPCC-PINT under Hadoop: `bash run_hpcc_pint1_fb.sh`
 
-* HPCC-PINT with p=1/256 of packets carrying feedback: `python run.py --cc hpccPint --trace wb50_b100 --bw 100 --hpai 50 --utgt 95 --pint_log_base 1.05 --pint_prob 0.0625`
+* HPCC-PINT with p=1/16 of packets carrying feedback under web search: `bash run_hpcc_pint16_wb.sh`
 
-* HPCC: `python run.py --cc hp --trace wb50_b100 --bw 100 --hpai 50 --utgt 95`
+* HPCC-PINT with p=1/16 of packets carrying feedback under Hadoop: `bash run_hpcc_pint16_fb.sh`
+
+* HPCC-PINT with p=1/256 of packets carrying feedback under web search: `bash run_hpcc_pint256_wb.sh`
+
+* HPCC-PINT with p=1/256 of packets carrying feedback under Hadoop: `bash run_hpcc_pint256_fb.sh`
+
+* HPCC under web search: `bash run_hpcc_wb.sh`
+
+* HPCC under Hadoop: `bash run_hpcc_fb.sh`
 
 * Each simulation will run for about 1 day.
 
