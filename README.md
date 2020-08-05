@@ -18,7 +18,7 @@ Refer to the README.md under it for more details.
 
 2. Run simulations: 
 
-* First enter the folder and configure: `cd simulation; bash build.sh` 
+* First enter the folder and configure: `bash build.sh` 
 
 * HPCC-PINT under web search: `bash run_hpcc_pint1_wb.sh`
 
