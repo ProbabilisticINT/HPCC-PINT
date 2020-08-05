@@ -44,9 +44,9 @@ Refer to the README.md under it for more details.
 
 * Our plot script requires python-tk. So if you don't have it, please install it (e.g., `sudo apt install python-tk`).
 
-* Fig 7: `bash plotVsHPCC.sh`
+* Fig 7: `bash plotVsHPCC.sh`. Figures are called `facebook_95p.png` and `web_search_95p.pdf`.
 
-* Fig 8: `bash plotProbHPCC.sh`
+* Fig 8: `bash plotProbHPCC.sh`. Figures are called `ProbHPCC_PINT_wb.pdf` and `ProbHPCC_PINT_fb.pdf`.
 
 ## More results
 We post more extensive evaluation results of HPCC-PINT [here](https://hpcc-group.github.io/results.html).
