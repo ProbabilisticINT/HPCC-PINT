@@ -42,6 +42,8 @@ Refer to the README.md under it for more details.
 
 * First enter the folder `cd analysis`
 
+* Our plot script requires python-tk. So if you don't have it, please install it (e.g., `sudo apt install python-tk`).
+
 * Fig 7: `bash plotVsHPCC.sh`
 
 * Fig 8: `bash plotProbHPCC.sh`
