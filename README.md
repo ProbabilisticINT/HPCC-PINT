@@ -42,9 +42,9 @@ Refer to the README.md under it for more details.
 
 * First enter the folder `cd analysis`
 
-* Generate data for fig 7(b): `python fct_analysis.py -p fct_fat_wb50_b100 -s 5 -t 0 -T 2200000000 -b 100`
+* Fig 7: `bash plotVsHPCC.sh`
 
-* Generate data for fig 8(b): `python fct_analysis_diffFreq.py -p fct_fat_wb50_b100 -s 5 -t 0 -T 2200000000 -b 100`
+* Fig 8: `bash plotProbHPCC.sh`
 
 ## More results
 We post more extensive evaluation results of HPCC-PINT [here](https://hpcc-group.github.io/results.html).
